@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexa - Detalhes Speaking</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e6f0f3, #ffffff);
+      color: #142F32;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .activity-container {
+      flex: 1;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    /* Logo no topo */
+.logo-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.icon-logo {
+  width: 40px;
+  height: 40px;
+  fill: #0c2325;
+  margin-right: 8px;
+  display: inline-block;
+  vertical-align: middle; /* Alinha o SVG com o texto */
+}
+
+.logo-progress a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.lexa-logo {
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  color: #0c2325;
+  font-size: 1.5rem;
+  line-height: 1;              /* Evita que o texto desça muito */
+  display: inline-block;
+  vertical-align: middle;       /* Alinha com o SVG */
+  margin-top: 2px;              /* Ajuste fino opcional */
+}
+
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    .placeholder-graph {
+      height: 180px;
+      background-color: #d9edf7;
+      border-radius: 8px;
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0c2325;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 16px;
+      background-color: #0c2325;
+      color: #fff;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .back-btn:hover {
+      background-color: #031011;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="activity-container">
+
+    <!-- LOGO -->
+    <div class="logo-progress">
+      <a class="navbar-brand logo-text d-flex align-items-center" href="index.html">
+        <svg class="icon-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M20.49,6.63L12.49,2.13c-.3-.17-.68-.17-.98,0L3.51,6.63c-.31.18-.51.51-.51.87v9c0,.36.19.69.51.87l8,4.5c.15.09.32.13.49.13s.34-.04.49-.13l8-4.5c.31-.18.51-.51.51-.87V7.5c0-.36-.19-.69-.51-.87ZM12.5,4.43l5.46,3.07-5.46,3.07v-6.14Zm-1,6.14l-5.46-3.07,5.46-3.07v6.14Zm-1.03,1.71l-5.47,3.08v-6.15l5.47,3.08Zm.53.85v6.15l-5.47-3.08,5.47-3.08Zm2,0l5.47,3.08-5.47,3.08v-6.15Zm.53-.85l5.47-3.08v6.15l-5.47-3.08Z" />
+        </svg>
+        <span class="lexa-logo">Lexa</span>
+      </a>
+    </div>
+
+    <h1>Listening</h1>
+
+    <p>Desempenho detalhado da sua atividade de Listening.</p>
+
+    <div class="placeholder-graph">Gráfico de Progresso - Speaking</div>
+
+    <a href="dashboard.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Voltar ao Dashboard</a>
+  </div>
+
+</body>
+</html>

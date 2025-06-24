@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lexa - Speaking</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      color: #0c2325;
+    }
+    .logo-progress {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .icon-logo {
+      width: 40px;
+      height: 40px;
+      fill: #0c2325;
+      margin-right: 8px;
+    }
+    .lexa-logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #0c2325;
+      line-height: 1;
+      transform: translateY(2px);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Container para o gráfico - responsivo */
+    .chart-container {
+      width: 100%;
+      max-width: 800px; /* largura máxima no desktop */
+      margin: 0 auto;
+      padding: 0 10px; /* padding lateral para mobile */
+      position: relative;
+      height: 300px; /* altura fixa para o gráfico */
+    }
+
+    canvas {
+      /* Será controlado pelo container */
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+    }
+
+.back-btn {
+  display: inline-flex;           /* Ajusta o tamanho só ao conteúdo */
+  align-items: center;            /* Alinha verticalmente ícone e texto */
+  gap: 8px;                      /* Espaço entre ícone e texto */
+  padding: 8px 16px;             /* Espaço interno confortável */
+  background: #142F32;
+  color: #fff;
+  border-radius: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  user-select: none;
+}
+
+.back-btn:hover {
+  background: #0f2123;
+  transform: scale(1.05);
+}
+
+.back-btn:focus {
+  outline: 3px solid #0d6efd;
+  outline-offset: 3px;
+}
+
+/* Centraliza o botão no container pai (se quiser) */
+.parent-container {
+  text-align: center; /* Centraliza inline/inline-flex */
+  margin-top: 20px;
+}
+
+
+
+.back-btn:hover {
+  background: #0f2123;
+  transform: scale(1.05);
+}
+
+.back-btn:focus {
+  outline: 3px solid #0d6efd;
+  outline-offset: 3px;
+}
+
+
+
+  .back-btn:hover { 
+    background:#142F32;
+     transform:scale(1.05); 
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Logo -->
+  <div class="logo-progress">
+    <svg class="icon-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M20.49,6.63L12.49,2.13c-.3-.17-.68-.17-.98,0L3.51,6.63c-.31.18-.51.51-.51.87v9c0,.36.19.69.51.87l8,4.5c.15.09.32.13.49.13s.34-.04.49-.13l8-4.5c.31-.18.51-.51.51-.87V7.5c0-.36-.19-.69-.51-.87Z"/>
+    </svg>
+    <span class="lexa-logo">Lexa</span>
+  </div>
+
+  <h1>Speaking - Progresso Semanal</h1>
+
+  <div class="chart-container">
+    <canvas id="speakingChart"></canvas>
+  </div>
+
+  <!--btn voltar-->
+
+      <div class="parent-container">
+  <a href="dashboard.html" class="back-btn">
+    <i class="fa-solid fa-arrow-left"></i> Voltar ao Dashboard
+  </a>
+</div>
+
+
+
+  <script>
+    const ctx = document.getElementById('speakingChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+        datasets: [{
+          label: 'Minutos por Dia',
+          data: [10, 15, 12, 18, 25, 20, 30],
+          backgroundColor: 'rgba(13, 110, 253, 0.2)',
+          borderColor: '#0d6efd',
+          borderWidth: 2,
+          tension: 0.3,
+          fill: true,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
