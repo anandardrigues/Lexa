@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
+
+
+    <style>
+
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: linear-gradient(135deg, #e6f0f3, #ffffff);
+            color: #142F32;
+        }
+
+        header{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .icon-logo{
+            width: 35px;
+            height: 35px;
+        }
+
+        .progress-container {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.progress-bar {
+  width: 80%;
+  height: 16px;
+  background: #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 auto 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #5cb85c;
+  transition: width 0.3s ease;
+}
+
+.badges {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.badge {
+  font-size: 1.8rem;
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+
+.badge.active {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+        .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 30px;
+      padding: 8px 16px;
+      background: #142F32;
+      color: #fff;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      align-self: center;
+    }
+
+    .back-btn i {
+      color: #fff;
+    }
+
+    .heading-text{
+        text-align: center;
+        font-size: 1.3rem;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .practice-grid{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .practice-card{
+        background-color: #fff;
+        border-radius: 20px;
+        padding: 10px;
+        box-shadow: 0 4px 12px;
+    }
+
+    .practice-card h3{
+        margin: 5px;
+        font-size: 1.1rem;
+    }
+
+    .practice-card p{
+
+        margin: 0.50rem;
+        margin: 10px 0;
+    }
+
+    .practice-card button{
+        padding: 8px 14px;
+        background-color: #142F32;
+        color: #ffffff;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        
+    }
+    .back-btn{
+      width: 100px;
+    }
+
+       
+
+
+
+
+
+
+
+    </style>
+
+
+
+
+</head>
+<body>
+
+    <!--LOGO-->
+
+     <header>
+    <svg class="icon-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M20.49,6.63L12.49,2.13c-.3-.17-.68-.17-.98,0L3.51,6.63c-.31.18-.51.51-.51.87v9c0,.36.19.69.51.87l8,4.5c.15.09.32.13.49.13s.34-.04.49-.13l8-4.5c.31-.18.51-.51.51-.87V7.5c0-.36-.19-.69-.51-.87ZM12.5,4.43l5.46,3.07-5.46,3.07v-6.14Zm-1,6.14l-5.46-3.07,5.46-3.07v6.14Zm-1.03,1.71l-5.47,3.08v-6.15l5.47,3.08Zm.53.85v6.15l-5.47-3.08,5.47-3.08Zm2,0l5.47,3.08-5.47,3.08v-6.15Zm.53-.85l5.47-3.08v6.15l-5.47-3.08Z" />
+      </svg>
+    <h1 class="title-logo">Lexa</h1>
+  </header>
+
+    <h2 class="heading-text">Escolha o tipo de prática de leitura</h2>
+
+     <!-- PROGRESSO E CONQUISTAS -->
+<div class="progress-container">
+  <p id="progress-text">Progresso: 0 de 6 práticas concluídas</p>
+  <div class="progress-bar">
+    <div class="progress-fill" style="width: 0%;"></div>
+  </div>
+  <div class="badges">
+    <span class="badge" id="badge-1">🥉</span>
+    <span class="badge" id="badge-3">🥈</span>
+    <span class="badge" id="badge-6">🥇</span>
+  </div>
+</div>
+
+    <div class="practice-grid">
+        <div class="practice-card">
+            <h3 class="title mt-5">🧠 Compreensão de Leitura</h3>
+      <p>Responda perguntas sobre o texto.</p>
+      <button onclick="location.href='/exs/reading-basic-comprehension.html'">Iniciar</button>
+        </div>
+
+        <div class="practice-card">
+      <h3 class="title mt-5">✍️ Complete a Palavra</h3>
+      <p>Digite a palavra correta nas frases.</p>
+      <button onclick="location.href='reading-basic-write-word.html'">Iniciar</button>
+    </div>
+    <div class="practice-card">
+      <h3 class="title mt-5">📖 Vocabulário com Tradução</h3>
+      <p>Veja o significado das palavras importantes.</p>
+      <button onclick="location.href='reading-basic-vocabulary.html'">Iniciar</button>
+    </div>
+    <div class="practice-card">
+      <h3 class="title mt-5">🗣️ Pratique a Pronúncia</h3>
+      <p>Leia o texto em voz alta com apoio.</p>
+      <button onclick="location.href='reading-basic-pronunciation.html'">Iniciar</button>
+    </div>
+    <div class="practice-card">
+      <h3 class="title mt-5">🎯 Desafio</h3>
+      <p>Complete arrastando palavras no lugar certo.</p>
+      <button onclick="location.href='reading-basic-challenge.html'">Iniciar</button>
+    </div>
+    <div class="practice-card">
+      <h3 class="title mt-5">📝 Escreva uma Frase</h3>
+      <p>Use uma palavra nova do texto em uma frase sua.</p>
+      <button onclick="location.href='reading-basic-write-sentence.html'">Iniciar</button>
+    </div>
+
+        <a href="reading-ex.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
+  </div>
+
+
+
+
+  <script>
+  const totalExercises = 6;
+  const exerciseKeys = [
+    "reading-basic-comprehension",
+    "reading-basic-write-word",
+    "reading-basic-vocabulary",
+    "reading-basic-pronunciation",
+    "reading-basic-challenge",
+    "reading-basic-write-sentence"
+  ];
+
+  let completed = JSON.parse(localStorage.getItem("completedExercises")) || [];
+
+  function updateProgress() {
+    document.getElementById("progress-text").innerText =
+      `Progresso: ${completed.length} de ${totalExercises} práticas concluídas`;
+
+    const percent = (completed.length / totalExercises) * 100;
+    document.querySelector(".progress-fill").style.width = `${percent}%`;
+
+    // Ativar conquistas
+    if (completed.length >= 1) document.getElementById("badge-1").classList.add("active");
+    if (completed.length >= 3) document.getElementById("badge-3").classList.add("active");
+    if (completed.length >= 6) document.getElementById("badge-6").classList.add("active");
+  }
+
+  updateProgress();
+</script>
+    
+
+
+    
+</body>
+</html>

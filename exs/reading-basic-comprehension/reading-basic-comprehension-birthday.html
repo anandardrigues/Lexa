@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    padding: 20px;
+    background: linear-gradient(135deg, #e6f0f3, #ffffff);
+    color: #142F32;
+  }
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .text-box {
+    font-size: 1.1rem;
+    background-color: #f0f9ff;
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 24px;
+  }
+  .question {
+    margin-bottom: 20px;
+  }
+  .question h4 {
+    margin-bottom: 10px;
+  }
+  .option-btn {
+    display: block;
+    background-color: #eee;
+    border: none;
+    padding: 10px;
+    margin: 6px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s;
+  }
+  .option-btn:hover {
+    background-color: #d6f5d6;
+  }
+  .option-btn.correct {
+    background-color: #5cb85c;
+    color: white;
+  }
+  .option-btn.wrong {
+    background-color: #d9534f;
+    color: white;
+  }
+  .finish-btn {
+    display: block;
+    margin: 20px auto;
+    background-color: #142F32;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+    <h2>Tom’s Birthday</h2>
+<div class="text-box">
+  <p>Today is Tom’s birthday. He is 7 years old. He has a big cake and many balloons.</p>
+</div>
+<div class="question" data-answer="B">
+  <h4>1. How old is Tom?</h4>
+  <button class="option-btn" onclick="checkAnswer(this, 'A')">A. 6</button>
+  <button class="option-btn" onclick="checkAnswer(this, 'B')">B. 7</button>
+  <button class="option-btn" onclick="checkAnswer(this, 'C')">C. 8</button>
+</div>
+<div class="question" data-answer="A">
+  <h4>2. What does Tom have?</h4>
+  <button class="option-btn" onclick="checkAnswer(this, 'A')">A. A big cake</button>
+  <button class="option-btn" onclick="checkAnswer(this, 'B')">B. A small box</button>
+  <button class="option-btn" onclick="checkAnswer(this, 'C')">C. A red car</button>
+</div>
+<div class="question" data-answer="C">
+  <h4>3. What else does Tom have?</h4>
+  <button class="option-btn" onclick="checkAnswer(this, 'A')">A. A toy</button>
+  <button class="option-btn" onclick="checkAnswer(this, 'B')">B. A hat</button>
+  <button class="option-btn" onclick="checkAnswer(this, 'C')">C. Balloons</button>
+</div>
+
+
+
+
+<script>
+  function checkAnswer(button, selected) {
+    const questionDiv = button.parentElement;
+    const correct = questionDiv.getAttribute('data-answer');
+    const allButtons = questionDiv.querySelectorAll('.option-btn');
+    allButtons.forEach(btn => btn.disabled = true);
+    if (selected === correct) {
+      button.classList.add('correct');
+    } else {
+      button.classList.add('wrong');
+      allButtons.forEach(btn => {
+        if (btn.textContent.trim().startsWith(correct)) {
+          btn.classList.add('correct');
+        }
+      });
+    }
+  }
+</script>
+    
+</body>
+</html>

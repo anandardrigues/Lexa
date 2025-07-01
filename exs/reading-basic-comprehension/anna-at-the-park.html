@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lexa - Anna at the Park</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #e6f0f3, #ffffff);
+      color: #142F32;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .logo svg {
+      width: 35px;
+      height: 35px;
+    }
+
+    .logo h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .text-box {
+      background-color: #f0f9ff;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+    }
+
+    .audio-btn {
+      background-color: #5bc0de;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .question h4 {
+      margin-bottom: 8px;
+    }
+
+    .option-btn {
+      display: block;
+      background-color: #eee;
+      border: none;
+      padding: 10px;
+      margin: 6px 0;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.2s;
+      width: 100%;
+    }
+
+    .option-btn:hover {
+      background-color: #d6f5d6;
+    }
+
+    .option-btn.correct {
+      background-color: #5cb85c;
+      color: white;
+    }
+
+    .option-btn.wrong {
+      background-color: #d9534f;
+      color: white;
+    }
+
+    .finish-btn {
+      display: block;
+      margin: 30px auto 0;
+      background-color: #142F32;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="logo">
+      <svg class="icon-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.49,6.63L12.49,2.13c-.3-.17-.68-.17-.98,0L3.51,6.63c-.31.18-.51.51-.51.87v9c0,.36.19.69.51.87l8,4.5c.15.09.32.13.49.13s.34-.04.49-.13l8-4.5c.31-.18.51-.51.51-.87V7.5c0-.36-.19-.69-.51-.87ZM12.5,4.43l5.46,3.07-5.46,3.07v-6.14Zm-1,6.14l-5.46-3.07,5.46-3.07v6.14Zm-1.03,1.71l-5.47,3.08v-6.15l5.47,3.08Zm.53.85v6.15l-5.47-3.08,5.47-3.08Zm2,0l5.47,3.08-5.47,3.08v-6.15Zm.53-.85l5.47-3.08v6.15l-5.47-3.08Z" />
+      </svg>
+      <h1>Lexa</h1>
+    </div>
+
+    <h2>Anna at the Park</h2>
+
+    <div class="text-box">
+      <p id="text">
+        Anna is at the park. She sees a dog. The dog is brown. Anna gives the dog some water. The dog is happy.
+      </p>
+    </div>
+
+    <button class="audio-btn" onclick="readText()">🔊 Listen</button>
+
+    <div class="question" data-answer="B">
+      <h4>1. Where is Anna?</h4>
+      <button class="option-btn" onclick="checkAnswer(this, 'A')">A. At school</button>
+      <button class="option-btn" onclick="checkAnswer(this, 'B')">B. At the park</button>
+      <button class="option-btn" onclick="checkAnswer(this, 'C')">C. At home</button>
+    </div>
+
+    <div class="question" data-answer="C">
+      <h4>2. What color is the dog?</h4>
+      <button class="option-btn" onclick="checkAnswer(this, 'A')">A. Black</button>
+      <button class="option-btn" onclick="checkAnswer(this, 'B')">B. White</button>
+      <button class="option-btn" onclick="checkAnswer(this, 'C')">C. Brown</button>
+    </div>
+
+    <div class="question" data-answer="B">
+      <h4>3. What does Anna give the dog?</h4>
+      <button class="option-btn" onclick="checkAnswer(this, 'A')">A. Food</button>
+      <button class="option-btn" onclick="checkAnswer(this, 'B')">B. Water</button>
+      <button class="option-btn" onclick="checkAnswer(this, 'C')">C. A toy</button>
+    </div>
+
+    <button class="finish-btn" onclick="finishExercise()">Finish</button>
+  </div>
+
+  <script>
+    function readText() {
+      const text = document.getElementById("text").innerText;
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "en-US";
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function checkAnswer(button, selected) {
+      const question = button.parentElement;
+      const correct = question.getAttribute('data-answer');
+      const options = question.querySelectorAll('.option-btn');
+      options.forEach(btn => btn.disabled = true);
+
+      if (selected === correct) {
+        button.classList.add('correct');
+      } else {
+        button.classList.add('wrong');
+        options.forEach(btn => {
+          if (btn.textContent.trim().startsWith(correct)) {
+            btn.classList.add('correct');
+          }
+        });
+      }
+    }
+
+    function finishExercise() {
+      const currentExercise = "reading-basic-comprehension-anna";
+      let completed = JSON.parse(localStorage.getItem("completedExercises")) || [];
+
+      if (!completed.includes(currentExercise)) {
+        completed.push(currentExercise);
+        localStorage.setItem("completedExercises", JSON.stringify(completed));
+      }
+
+      alert("✅ Great job!");
+      window.location.href = "reading-basic-options.html";
+    }
+  </script>
+</body>
+</html>

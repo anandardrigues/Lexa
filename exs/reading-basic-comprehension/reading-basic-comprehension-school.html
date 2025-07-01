@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Day at School</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif;
+     padding: 20px; 
+     background: linear-gradient(135deg, #e6f0f3, #ffffff); color: #142F32; 
+    }
+    .container { max-width: 600px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 16px; box-shadow: 0 0 12px rgba(0,0,0,0.1); }
+    h2 { text-align: center; margin-bottom: 16px; }
+    .text-box { font-size: 1.1rem; background-color: #f0f9ff; padding: 16px; border-radius: 10px; margin-bottom: 24px; }
+    .question { margin-bottom: 20px; }
+    .question h4 { margin-bottom: 10px; }
+    .option-btn { display: block; background-color: #eee; border: none; padding: 10px; margin: 6px 0; border-radius: 8px; cursor: pointer; text-align: left; transition: background 0.2s; }
+    .option-btn:hover { background-color: #d6f5d6; }
+    .option-btn.correct { background-color: #5cb85c; color: white; }
+    .option-btn.wrong { background-color: #d9534f; color: white; }
+    .finish-btn { display: block; margin: 20px auto; background-color: #142F32; color: white; padding: 10px 20px; border: none; border-radius: 20px; font-weight: bold; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>A Day at School</h2>
+    <div class="text-box">
+      <p>Tom goes to school. He has a blue backpack. He likes his teacher and his friends.</p>
+    </div>
+    <div class="question" data-answer="B">
+      <h4>1. What color is Tom's backpack?</h4>
+      <button class="option-btn" onclick="checkAnswer(this, 'A')">A. Red</button>
+      <button class="option-btn" onclick="checkAnswer(this, 'B')">B. Blue</button>
+      <button class="option-btn" onclick="checkAnswer(this, 'C')">C. Green</button>
+    </div>
+    <div class="question" data-answer="A">
+      <h4>2. Where does Tom go?</h4>
+      <button class="option-btn" onclick="checkAnswer(this, 'A')">A. To school</button>
+      <button class="option-btn" onclick="checkAnswer(this, 'B')">B. To the park</button>
+      <button class="option-btn" onclick="checkAnswer(this, 'C')">C. To the zoo</button>
+    </div>
+    <div class="question" data-answer="C">
+      <h4>3. Who does Tom like?</h4>
+      <button class="option-btn" onclick="checkAnswer(this, 'A')">A. His cat</button>
+      <button class="option-btn" onclick="checkAnswer(this, 'B')">B. His dog</button>
+      <button class="option-btn" onclick="checkAnswer(this, 'C')">C. His teacher and friends</button>
+    </div>
+    <button class="finish-btn" onclick="finishExercise()">Finish</button>
+  </div>
+  <script>
+    function checkAnswer(button, selected) {
+      const questionDiv = button.parentElement;
+      const correct = questionDiv.getAttribute('data-answer');
+      const allButtons = questionDiv.querySelectorAll('.option-btn');
+      allButtons.forEach(btn => btn.disabled = true);
+      if (selected === correct) {
+        button.classList.add('correct');
+      } else {
+        button.classList.add('wrong');
+        allButtons.forEach(btn => {
+          if (btn.textContent.trim().startsWith(correct)) {
+            btn.classList.add('correct');
+          }
+        });
+      }
+    }
+    function finishExercise() {
+      const currentExercise = "reading-basic-comprehension-school";
+      let completed = JSON.parse(localStorage.getItem("completedExercises")) || [];
+      if (!completed.includes(currentExercise)) {
+        completed.push(currentExercise);
+        localStorage.setItem("completedExercises", JSON.stringify(completed));
+      }
+      alert("Well done! ✅");
+      window.location.href = "reading-basic-options.html";
+    }
+  </script>
+</body>
+</html>

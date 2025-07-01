@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexa - Compreensão de Leitura</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #e6f0f3, #ffffff);
+      color: #142F32;
+      margin: 0;
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .icon-logo {
+      width: 35px;
+      height: 35px;
+    }
+
+    .title-logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .exercise-grid {
+      display: grid;
+      gap: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .exercise-card {
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+      cursor: pointer;
+    }
+
+    .exercise-card:hover {
+      transform: scale(1.03);
+    }
+
+    .exercise-card h3 {
+      margin: 0 0 8px 0;
+      font-size: 1.2rem;
+    }
+
+    .exercise-card p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 30px;
+      padding: 8px 16px;
+      background: #142F32;
+      color: #fff;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      align-self: center;
+    }
+
+    .back-btn i {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <svg class="icon-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20.49,6.63L12.49,2.13c-.3-.17-.68-.17-.98,0L3.51,6.63c-.31.18-.51.51-.51.87v9c0,.36.19.69.51.87l8,4.5c.15.09.32.13.49.13s.34-.04.49-.13l8-4.5c.31-.18.51-.51.51-.87V7.5c0-.36-.19-.69-.51-.87ZM12.5,4.43l5.46,3.07-5.46,3.07v-6.14Zm-1,6.14l-5.46-3.07,5.46-3.07v6.14Zm-1.03,1.71l-5.47,3.08v-6.15l5.47,3.08Zm.53.85v6.15l-5.47-3.08,5.47-3.08Zm2,0l5.47,3.08-5.47,3.08v-6.15Zm.53-.85l5.47-3.08v6.15l-5.47-3.08Z" />
+    </svg>
+    <h1 class="title-logo">Lexa</h1>
+  </header>
+
+  <h2>Compreensão de Leitura - Básico</h2>
+
+  <div class="exercise-grid">
+    <div class="exercise-card" onclick="location.href='reading-basic-comprehension-cat.html'">
+      <h3>😺 Tom's Cat</h3>
+      <p>Um gato com um chapéu vermelho! Curto e divertido.</p>
+    </div>
+
+    <div class="exercise-card" onclick="location.href='reading-basic-comprehension-anna.html'">
+      <h3>🧍 Anna at the Park</h3>
+      <p>Leia sobre Anna e um cachorro no parque.</p>
+    </div>
+
+    <div class="exercise-card" onclick="location.href='reading-basic-comprehension-dog.html'">
+      <h3>🐶 My Blue Dog</h3>
+      <p>Um cachorro azul muito especial. Leia e responda.</p>
+    </div>
+  </div>
+
+  <div style="text-align: center;">
+    <a href="reading-basic-options.html" class="back-btn">
+      <i class="fa-solid fa-arrow-left"></i> Voltar
+    </a>
+  </div>
+
+</body>
+</html>

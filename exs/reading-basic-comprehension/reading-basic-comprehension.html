@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reading Comprehension - Basic</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      background: linear-gradient(135deg, #e6f0f3, #ffffff);
+      color: #142F32;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .text-box {
+      font-size: 1.1rem;
+      background-color: #f0f9ff;
+      padding: 16px;
+      border-radius: 10px;
+      margin-bottom: 24px;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .question h4 {
+      margin-bottom: 10px;
+    }
+
+    .option-btn {
+      display: block;
+      background-color: #eee;
+      border: none;
+      padding: 10px;
+      margin: 6px 0;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.2s;
+    }
+
+    .option-btn:hover {
+      background-color: #d6f5d6;
+    }
+
+    .option-btn.correct {
+      background-color: #5cb85c;
+      color: white;
+    }
+
+    .option-btn.wrong {
+      background-color: #d9534f;
+      color: white;
+    }
+
+    .feedback {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .finish-btn {
+      display: block;
+      margin: 20px auto;
+      background-color: #142F32;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Reading Comprehension</h2>
+
+    <div class="text-box">
+      <p>This is Tom. Tom has a cat. The cat is white. The cat wears a big red hat. Tom loves his cat.</p>
+    </div>
+
+    <div class="question" data-answer="B">
+      <h4>1. What color is the cat?</h4>
+      <button class="option-btn" onclick="checkAnswer(this, 'A')">A. Black</button>
+      <button class="option-btn" onclick="checkAnswer(this, 'B')">B. White</button>
+      <button class="option-btn" onclick="checkAnswer(this, 'C')">C. Brown</button>
+    </div>
+
+    <div class="question" data-answer="A">
+      <h4>2. What does the cat wear?</h4>
+      <button class="option-btn" onclick="checkAnswer(this, 'A')">A. A red hat</button>
+      <button class="option-btn" onclick="checkAnswer(this, 'B')">B. A blue shirt</button>
+      <button class="option-btn" onclick="checkAnswer(this, 'C')">C. Glasses</button>
+    </div>
+
+    <div class="question" data-answer="C">
+      <h4>3. Who loves the cat?</h4>
+      <button class="option-btn" onclick="checkAnswer(this, 'A')">A. The dog</button>
+      <button class="option-btn" onclick="checkAnswer(this, 'B')">B. The bird</button>
+      <button class="option-btn" onclick="checkAnswer(this, 'C')">C. Tom</button>
+    </div>
+
+    <button class="finish-btn" onclick="finishExercise()">Finish</button>
+  </div>
+
+  <script>
+    function checkAnswer(button, selected) {
+      const questionDiv = button.parentElement;
+      const correct = questionDiv.getAttribute('data-answer');
+
+      const allButtons = questionDiv.querySelectorAll('.option-btn');
+      allButtons.forEach(btn => btn.disabled = true);
+
+      if (selected === correct) {
+        button.classList.add('correct');
+      } else {
+        button.classList.add('wrong');
+        allButtons.forEach(btn => {
+          if (btn.textContent.trim().startsWith(correct)) {
+            btn.classList.add('correct');
+          }
+        });
+      }
+    }
+
+    function finishExercise() {
+      const currentExercise = "reading-basic-comprehension";
+      let completed = JSON.parse(localStorage.getItem("completedExercises")) || [];
+
+      if (!completed.includes(currentExercise)) {
+        completed.push(currentExercise);
+        localStorage.setItem("completedExercises", JSON.stringify(completed));
+      }
+
+      alert("Well done! ✅");
+      window.location.href = "reading-basic-options.html";
+    }
+  </script>
+
+</body>
+</html>
